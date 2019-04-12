@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Stonehawk</title>
+	
+  <style>
+		
+body {
+	top: 0;
+	left: 0;
+	margin: 0;
+  background: #1D7BBF;
+
+}
+.text h1 {
+  text-align: center;
+}
+
+/* fixed side social buttons */
+#mySidenav a {
+  position: absolute; /* Position them relative to the browser window */
+  left: -60px; /* Position them outside of the screen */
+  transition: 0.3s; /* Add transition on hover */
+  padding: 10px; /* 15px padding */
+  width: 100px; /* Set a specific width */
+  text-decoration: none; /* Remove underline */
+  font-size: 20px; /* Increase font size */
+  color: white; /* White text color */
+  border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+  margin-top: 5%;
+  position: fixed;
+  z-index: 1;
+}
+
+#mySidenav a:hover {
+  left: 0; /* On mouse-over, make the elements appear as they should */
+}
+/* The about link: 20px from the top with a green background */
+#mySidenav .fa-facebook,
+.fa-twitter,
+.fa-instagram,
+.fa-youtube {
+  margin-left: 15px;
+  font-size: 30px;
+}
+#about {
+  top: 20px;
+  background-color: #3a5795;
+}
+#blog {
+  top: 80px;
+  background-color: #78bdf1;
+}
+#projects {
+  top: 140px;
+  background-color: #d047d1;
+}
+#contact {
+  top: 200px;
+  background-color: red;
+}
+
+/* Make the icon Spin OPTIONAL */
+
+.fa-facebook,
+.fa-twitter,
+.fa-youtube {
+  -ms-transform: rotate(0deg); /* IE 9 */
+  -webkit-transform: rotate(0deg); /* Safari and Chrome */
+  -o-transform: rotate(0deg); /* Opera */
+  -moz-transform: rotate(0deg); /* Firefox */
+  transform: rotate(0deg);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.fa-facebook:hover,
+.fa-twitter:hover,
+.fa-youtube:hover,
+.fa-instagram:hover {
+  -ms-transform: rotate(360deg); /* IE 9 */
+  -webkit-transform: rotate(360deg); /* Safari and Chrome */
+  -o-transform: rotate(360deg); /* Opera */
+  -moz-transform: rotate(360deg); /* Firefox */
+  transform: rotate(360deg);
+  transition: all 0.3s;
+}
+
+
+.container {
+	position: relative;
+	height: 400px;
+	width: 600px;
+	margin: 50px auto 0 auto;
+}
+
+/* ===== CLOCK ===== */
+
+.clock {
+	position: absolute;
+	top: 80px;
+	right: 40px;
+	background: #f1f1f1;
+	height: 60px;
+	width: 60px;
+	border-radius: 50%;
+	border: 6px solid #000;
+}
+
+.clock:before {
+	content: "";
+	position: absolute;
+	background: #DF8EBD;
+	height: 6px;
+	width: 6px;
+	border-radius: 50%;
+	margin: 27px 0 0 27px;
+}
+
+.clock-hours {
+	position: relative;
+	background: #DF8EBD;
+	height: 20px;
+	width: 4px;
+	transform: rotate(-40deg);
+	margin: 30px 0 0 28px;
+	-webkit-animation: spin 48s infinite linear;
+	-moz-animation: spin 48s infinite linear;
+	animation: spin 48s infinite linear;
+}
+
+@-webkit-keyframes spin {
+	0% {-webkit-transform: rotate(0deg);
+		-webkit-transform-origin: 50% 0%;
+	}
+	100% {-webkit-transform: rotate(360deg);
+		-webkit-transform-origin: 50% 0%;
+	}
+}
+
+@-moz-keyframes spin {
+	0% {-moz-transform: rotate(0deg);
+		-moz-transform-origin: 50% 0%;
+	}
+	100% {-moz-transform: rotate(360deg);
+		-moz-transform-origin: 50% 0%;
+	}
+}
+
+@keyframes spin {
+	0% {transform: rotate(0deg);
+		transform-origin: 50% 0%;
+	}
+	100% {transform: rotate(360deg);
+		transform-origin: 50% 0%;
+	}
+}
+
+.clock-mins {
+	position: relative;
+	background: #DF8EBD;
+	height: 24px;
+	width: 4px;
+	transform: rotate(90deg);
+	margin: -20px 0 0 28px;
+	-webkit-animation: spin 4s infinite linear;
+	-moz-animation: spin 4s infinite linear;
+	animation: spin 4s infinite linear;
+}
+
+/* ===== SWITCH ===== */
+
+.switch {
+	position: relative;
+	top: 240px;
+	left: 512px;
+	background: #818382;
+	height: 58px;
+	width: 34px;
+}
+
+.switch-white {
+	position: relative;
+	background: #f1f1f1;
+	height: 14px;
+	width: 26px;
+	margin: 4px 0 0 4px;
+	top: 4px;
+	cursor: pointer;
+	z-index: 2;
+}
+
+.switch-yellow {
+	position: relative;
+	background: #ffc107;
+	height: 14px;
+	width: 26px;
+	margin: 4px 0 0 4px;
+	top: 4px;
+	cursor: pointer;
+	z-index: 3;
+}
+
+.switch-off {
+	position: relative;
+	background: #151b1b;
+	height: 14px;
+	width: 26px;
+	margin: 4px 0 0 4px;
+	top: 4px;
+	cursor: pointer;
+	z-index: 4;
+}
+
+
+/* ===== COMPUTER ===== */
+#picture {
+	width: auto;
+	height: auto;
+	display: inline-block;
+	margin-top: 20px;
+	margin-left: 160px;
+	position: absolute;
+}
+
+#picture-1,
+#picture-2 {
+	width: 80px;
+	height: 100px;
+}
+
+#picture-1,
+#picture-2,
+#picture-3 {
+	border: 5px solid #3F3F4B;
+	position: relative;
+}
+
+#picture-1,
+#picture-3 {
+	margin-left: 110px;
+}
+
+#picture-1 {
+	background: url(http://jackiezen.com/Office/images/balloon.jpg) center no-repeat;
+	background-color: #F7F5F7;
+	background-size: 60px 80px;
+}
+
+#picture-2 {
+	background: url(http://jackiezen.com/Office/images/nyc.jpg) center no-repeat;
+	background-size: 60px 80px;
+	background-color: #D89A8F;
+	margin-top: -50px;
+}
+
+#picture-3 {
+	background: url(http://jackiezen.com/Office/images/cat.jpg) center no-repeat;
+	background-size: 80px 60px;
+	background-color: #B0BBB4;
+	width: 100px;
+	height: 80px;
+	margin-top: -40px;
+}
+
+#picture-1:hover {
+	-webkit-animation: picture-1 1s linear forwards;
+	        animation: picture-1 1s linear forwards;
+	-webkit-transform-origin: top;
+	    -ms-transform-origin: top;
+	        transform-origin: top;
+	cursor: pointer;
+}
+
+@-webkit-keyframes picture-1 {
+	20% {
+		-webkit-transform: rotate(3deg);
+		        transform: rotate(3deg);
+	}
+	50% {
+		-webkit-transform: rotate(-3deg);
+		        transform: rotate(-3deg);
+	}
+	70% {
+		-webkit-transform: rotate(1deg);
+		        transform: rotate(1deg);
+	}
+	80% {
+		-webkit-transform: rotate(-1deg);
+		        transform: rotate(-1deg);
+	}
+	100% {
+		-webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+	}
+}
+
+@keyframes picture-1 {
+	20% {
+		-webkit-transform: rotate(3deg);
+		        transform: rotate(3deg);
+	}
+	50% {
+		-webkit-transform: rotate(-3deg);
+		        transform: rotate(-3deg);
+	}
+	70% {
+		-webkit-transform: rotate(1deg);
+		        transform: rotate(1deg);
+	}
+	80% {
+		-webkit-transform: rotate(-1deg);
+		        transform: rotate(-1deg);
+	}
+	100% {
+		-webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+	}
+}
+
+#picture-2:hover {
+	-webkit-animation: picture-2 0.5s linear forwards;
+	        animation: picture-2 0.5s linear forwards;
+	cursor: pointer;
+}
+
+@-webkit-keyframes picture-2 {
+	50% {
+		-webkit-transform: translateY(-5px);
+		        transform: translateY(-5px);
+	}
+	100% {
+		-webkit-transform: translateY(0px);
+		        transform: translateY(0px);
+	}
+}
+
+@keyframes picture-2 {
+	50% {
+		-webkit-transform: translateY(-5px);
+		        transform: translateY(-5px);
+	}
+	100% {
+		-webkit-transform: translateY(0px);
+		        transform: translateY(0px);
+	}
+}
+
+#picture-3:hover {
+	-webkit-animation: picture-3 0.5s linear forwards;
+	        animation: picture-3 0.5s linear forwards;
+	-webkit-transform-origin: top left;
+	    -ms-transform-origin: top left;
+	        transform-origin: top left;
+	cursor: pointer;
+}
+
+@-webkit-keyframes picture-3 {
+	50% {
+		-webkit-transform: rotate(5deg);
+		        transform: rotate(5deg);
+	}
+	100% {
+		-webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+	}
+}
+
+@keyframes picture-3 {
+	50% {
+		-webkit-transform: rotate(5deg);
+		        transform: rotate(5deg);
+	}
+	100% {
+		-webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+	}
+}
+
+/*PHOTOS*/
+
+#photo-1 {
+	display: inline-block;
+	position: absolute;
+	background-color: #F5F0EA;
+	width: 200px;
+	height: 100px;
+	left: 0;
+	top: 0;
+	z-index: 4;
+	margin-left: 580px;
+	margin-top: 140px;
+	-webkit-transform: rotate(8deg);
+	    -ms-transform: rotate(8deg);
+	        transform: rotate(8deg);
+	-webkit-transform-origin: top;
+	    -ms-transform-origin: top;
+	        transform-origin: top;
+}
+
+#photo-1:before {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	width: 40px;
+	height: 35px;
+	margin-left: 5px;
+	margin-top: 5px;
+	background: url(http://jackiezen.com/Office/images/catgirl.jpg) center no-repeat;
+	background-size: 40px 30px;
+}
+
+#photo-1:after {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	background-color: #4F395C;
+	border-radius: 50%;
+	margin-top: -63px;
+	margin-left: 22px;
+}
+
+#photo-1:hover {
+	-webkit-animation: polaroid-1 1s ease infinite;
+	        animation: polaroid-1 1s ease infinite;
+	-webkit-transform-origin: top;
+	    -ms-transform-origin: top;
+	        transform-origin: top;
+}
+
+@-webkit-keyframes polaroid-1 {
+	50% {
+		-webkit-transform: rotate(3deg);
+		        transform: rotate(3deg);
+	}
+}
+
+@keyframes polaroid-1 {
+	50% {
+		-webkit-transform: rotate(3deg);
+		        transform: rotate(3deg);
+	}
+}
+
+p.photo,
+p.note {
+	font-family: 'Permanent Marker', cursive;
+	color: #4F395C;
+	text-align: center;
+}
+
+p.photo {
+	font-size: 8px;
+	margin-top: 40px;
+}
+.computer {
+	position: relative;
+	left: 40px;
+	top: -2px;
+}
+
+.computer-body {
+	position: relative;
+	background: #151b1b;
+	height: 150px;
+	width: 250px;
+	border-radius: 10px;
+	margin: 150px auto;
+}
+
+.computer-screen {
+	position: relative;
+	background: #cfd8dc;
+	height: 110px;
+	width: 230px;
+	margin: 0 auto;
+	top: 10px;
+}
+
+
+
+.computer-content {
+	position: relative;
+	display: inline-block;
+	
+	height: 24px;
+	width: 100px;
+	margin: 0px 0 4px 9px;
+}
+
+
+
+.computer-stand {
+	position: relative;
+	border-bottom: 20px solid #4c5051;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	height: 0;
+	width: 50px;
+	margin: 40px auto;
+}
+
+.computer-stand:before {
+	content:"";
+	position: absolute;
+	background: #818382;
+	height: 6px;
+	width: 300px;
+	border-radius:3px 3px 0 0;
+	margin: 20px 0 0 -125px;
+}
+
+.computer-stand:after {
+	content:"";
+	position: absolute;
+	background: #151b1b;
+	height: 4px;
+	width: 300px;
+	margin: 26px 0 0 -125px;
+}
+
+/* ===== LAMP ===== */
+
+.lamp {
+	position: relative;
+	height: 320px;
+	width: 300px;
+	margin: -346px 0 0 140px;
+}
+
+.lamp-head {
+	position: relative;
+	background: #f1f1f1;
+	height: 35px;
+	width: 70px;
+	border-radius: 35px 35px 0 0;
+	-webkit-transform: rotate(-40deg);
+	-moz-transform: rotate(-40deg);
+	transform: rotate(-40deg);
+}
+
+.lamp-head:before {
+	content: "";
+	position: absolute;
+	border-bottom: 20px solid #f1f1f1;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	height: 0;
+	width: 20px;
+	margin: -16px 0 0 18px;
+}
+
+.lamp-head:after {
+	content: "";
+	position: absolute;
+	background: #DF8EBD;
+	height: 8px;
+	width: 6px;
+	border-radius: 3px 3px 0 0;
+	margin: -24px 0 0 30px;
+}
+
+.lamp-bulb {
+	position: relative;
+	height: 8px;
+	width: 16px;
+	border-radius: 8px 8px 0 0;
+	-webkit-transform: rotate(140deg);
+	-moz-transform: rotate(140deg);
+	transform: rotate(140deg);
+	margin: -5px 0 0 40px;
+}
+
+.on {
+	background: #ffc107;
+}
+
+.off {
+	display: none;
+	background: #818382;
+}
+
+.lamp-stand-top {
+	position: relative;
+	background: #f1f1f1;
+	height: 110px;
+	width: 6px;
+	-webkit-transform: rotate(60deg);
+	-moz-transform: rotate(60deg);
+	transform: rotate(60deg);
+	margin-bottom: -98px;
+	top: -40px;
+	left: -36px;
+}
+
+.lamp-pivot {
+	position: relative;
+	background: #DF8EBD;
+	height: 20px;
+	width: 20px;
+	border: 4px solid #ffc107;
+	border-radius: 50%;
+	margin: 6px 0 0 -86px;
+	z-index: 1;
+}
+
+.lamp-stand-bottom {
+	position: relative;
+	display: inline-block;
+	background: #f1f1f1;
+	height: 110px;
+	width: 6px;
+	margin-left: 1px;
+	-webkit-transform: rotate(10deg);
+	-moz-transform: rotate(10deg);
+	transform: rotate(10deg);
+	top: -6px;
+	left: -92px;
+}
+
+.lamp-base {
+	position: relative;
+	background: #DF8EBD;
+	height: 30px;
+	width: 60px;
+	border-radius: 30px 30px 0 0;
+	margin: -16px 0 0 -122px;
+}
+
+.lamp-light {
+	position: absolute;
+	border-left: 80px solid transparent;
+	border-right: 80px solid transparent;
+	height: 0;
+	width: 70px;
+	-webkit-transform: rotate(-40deg);
+	-moz-transform: rotate(-40deg);
+	transform: rotate(-40deg);
+	margin: -210px 0 0 -24px;
+}
+
+.yellow {
+	border-bottom: 140px solid rgba(255, 193, 7, 0.3);	
+}
+
+.white {
+	display: none;
+	border-bottom: 140px solid rgba(241, 241, 241, 0.3);
+}
+
+/* ===== DESK ===== */
+
+.desk {
+	position: relative;
+	background: #f1f1f1;
+	height: 100px;
+	width: 600px;
+	margin: -96px 0 0 0;
+	box-shadow: 6px 6px 15px 0 #9999cc;
+}
+
+
+html, body{
+  padding: 0;
+  margin: 0;
+}
+body{
+  background-color: #BD667D;
+  color: #fff;
+  transition: 3s;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+.clearfix:before, .clearfix:after{
+  clear: both
+}
+.c{
+  color: rgba(255, 255, 255, .8);
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.dn{
+  display: none;
+}
+.pr{
+  position: relative;
+}
+.pa{
+  position: absolute;
+}
+.tc{
+  text-align: center;
+}
+.mt50{
+  margin-top: 50px;
+}
+.mb20{
+  margin-bottom: 20px;
+}
+.f20{
+  font-size: 20px;
+}
+.f25{
+  font-size: 25px;
+}
+.plr20{
+  padding: 0 20px;
+}
+.main_container{
+  margin: 50px auto 10px auto;
+  width: 310px;
+  height: 410px;
+  overflow: hidden;
+  position: relative;
+}
+.first, .second, .third{
+  background-color: rgba(0,0,0,.1);
+  border-radius: 5px;
+  width: 300px;
+  height: 400px;
+  margin: 10px; 
+  position: absolute;
+}
+.bag_container{
+  padding-top: 100px;
+  text-align: center;
+}
+.bag{
+  width: 100px;
+  margin: 0 auto;
+}
+.bag .base{
+  background-color: #E2574C;
+  height: 85px;  
+  border-radius: 5px;
+  margin-top: -10px;
+}
+.bag  .left_pocket, .right_pocket{
+  background-color: #BF392C;
+  height: 50px;
+  width: 10px;
+}
+.bag  .right_pocket{
+  border-top-right-radius: 5px;  
+  border-bottom-right-radius: 5px;
+  right: -10px;
+  top: 25px;
+}
+.bag  .left_pocket{
+  border-top-left-radius: 5px;  
+  border-bottom-left-radius: 5px;
+  left: -10px;
+  top: 25px;
+}
+.bag .head{
+  background-color: #BF392C;
+  height: 45px;
+  border-radius: 15px;
+  width: 110px;
+  z-index: 5;
+  left: -5px;
+  top: -30px;
+}
+.bag .handle{
+  border: 10px solid #324D5B;
+  height: 20px;
+  width: 20px;
+  top: -48px;
+  border-radius: 50%;
+  left: 30px;
+}
+.belt{
+  height: 80px;
+  width: 12px;
+  background-color: #EFC75E;
+  top: -30px;
+  z-index: 6;
+}
+.bag .belt1{
+  left: 18px;
+}
+.bag .belt2{
+  right: 18px;
+}
+.bag .clip{
+  background-color: #E4E7E7;
+  height: 15px;
+  width: 20px;
+  top: 25px;
+  z-index: 7;
+}
+.bag .clip1{
+  left: 14px;
+}
+.bag .clip2{
+  right: 14px;
+}
+
+.bookshelf{
+  margin: 0 auto;
+  margin-top: 60px;
+  width: 100px;
+  background-color: #F2EBD9;
+  height: 130px;
+  border: 4px solid #062746;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+}
+.bookshelf .window_container{
+  background-color: #FFCC75;
+  height: 106px;
+  margin-top: 20px;
+  border-top: 4px solid #062746; 
+}
+.bookshelf .window{
+  border: 4px solid #062746;
+  width: 80px;
+  height: 45px;
+  margin: 7px auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.book{
+  border-right: 4px solid #062746; 
+  width: 17px;
+  height: 100%;
+  float: left;
+}
+.book1{
+  background-color: #F2484B;
+}
+.book2{
+  background-color: #FF9D49;
+}
+.book3{
+  background-color: #6DA8D6;
+}
+.book4{
+  background-color: #98D9D5;
+  border-right: 0px;
+}
+.top_books{
+  position: absolute;
+  height: 36px;
+  top: -44px;
+  left: 6px;
+}
+.top_books .book1{
+  border-left: 4px solid #062746;
+  border-top: 4px solid #062746;
+  border-top-left-radius: 5px;
+}
+.top_books .book2{
+  border-top: 4px solid #062746; 
+  border-top-right-radius: 5px;
+}
+.chat_container{
+  padding-top: 85px;
+  text-align: center;
+  margin: 0 auto 100px auto;
+  width: 140px;
+}
+.chat{
+  height: 70px;
+  width: 100px;
+  border-radius: 10px;
+} 
+.chat:after{
+  content: '';
+  position: absolute;
+  left: 20px;
+  bottom: -20px;
+  border-right: 30px solid transparent;
+  border-left: 0px solid transparent;
+  border-top: 30px solid #fff;
+}
+.chat1{
+  background-color: #EBBA16;
+  z-index: 3;
+}
+.chat2{
+  background-color: #ED8A19;
+  margin-top: -100px;
+  margin-left: 40px;
+  transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -ie-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+}
+.chat1:after{
+  border-top: 30px solid #EBBA16;
+}
+.chat2:after{
+  border-top: 30px solid #ED8A19;
+}
+.circle_container{
+  padding-left: 18px;
+}
+.chat1 .circle{
+  height: 12px;
+  width: 12px;
+  background-color: #fff;
+  border-radius: 50%;
+  float: left;
+  margin-left: 7px;
+  margin-top: 30px;
+}
+.navigations{
+  margin: 0px auto;
+  width: 300px;
+}
+.navigations .left, .navigations .right{
+  background-color: rgba(0,0,0,.3);
+  height: 22px;
+  width: 7px;
+  border-radius: 50%;
+  text-transform: capitalize;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+.first{
+  left: 0;
+}
+.second{
+  left: 300px;
+}
+.third{
+  left: 600px;
+}
+</style>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+	$(".drag").draggable().css('cursor', 'pointer');
+	
+    $(document).ready(function(){
+        $( '.switch-yellow' ).click(function() {
+              $( '.yellow' ).toggle(true);
+              $( '.white' ).toggle(false);
+              $( '.off' ).toggle(false);
+              $( '.on' ).toggle(true);
+        });
+        $( '.switch-white' ).click(function() {
+              $( '.yellow' ).toggle(false);
+              $( '.white' ).toggle(true);
+              $( '.off' ).toggle(false);
+              $( '.on' ).toggle(true);
+        });
+        $( '.switch-off' ).click(function() {
+              $( '.yellow' ).toggle(false);
+              $( '.white' ).toggle(false);
+              $( '.off' ).toggle(true);
+              $( '.on' ).toggle(false);
+        });
+    });
+		
+		$(document).ready(function(){
+      $(".first").addClass("active");
+      $(".navigations .right").on("click", function(){
+        next();
+      });
+      $(".navigations .left").on("click", function(){
+        prev();
+      });
+
+      function next(){
+        $('.left').show();
+        var current_element = $("body").find(".active");
+        changeColorNext(current_element);
+        current_element.removeClass("active").next().addClass("active");
+        current_element.animate({left: "-310px"}, 500).next().animate({left: "0px"}, 500);    
+        if(current_element.attr("class") == 'second'){
+          $(".right").hide();
+        }
+      }
+
+      function prev(){
+        $('.right').show();
+        var current_element = $("body").find(".active");
+        changeColorPrev(current_element);
+        current_element.removeClass("active").prev().addClass("active");
+        current_element.animate({left: "310px",}, 500).prev().animate({left: "0px"}, 500);
+        if(current_element.attr("class") == 'second'){
+          $(".left").hide();
+        }        
+      }
+      function changeColorNext(current_element){
+        if(current_element.next().attr("class") == "first"){
+          $("body").css({"background-color": "#BD667D"});
+        }
+        if(current_element.next().attr("class") == "second"){
+          $("body").css({"background-color": "#797CA0"});
+        }
+        if(current_element.next().attr("class") == "third"){
+          $("body").css({"background-color": "#4D9AAE"});
+        }
+      }
+      function changeColorPrev(current_element){
+        if(current_element.prev().attr("class") == "first"){
+          $("body").css({"background-color": "#BD667D"});
+        }
+        if(current_element.prev().attr("class") == "second"){
+          $("body").css({"background-color": "#797CA0"});
+        }
+        if(current_element.prev().attr("class") == "third"){
+          $("body").css({"background-color": "#4D9AAE"});
+        }
+      }
+    });
+	
+    </script>
+</head>
+
+<body>
+		<div class="text">
+				<h1>Stonehawk Travel Blog</h1>
+			</div>
+			
+			<!-- Fixed Side Socials -->
+			<div id="mySidenav" class="sidenav hidden-xs hidden-sm" onclick="">
+				<a href="#" id="about"><i class="fab fa-facebook"></i></a>
+				<a href="#" id="blog"><i class="fab fa-twitter"></i></a>
+				<a href="#" id="projects"><i class="fab fa-instagram"></i></a>
+				<a href="#" id="contact"><i class="fab fa-youtube"></i></a>
+			</div>
+	
+		<!--PICTURES-->
+		<div id="picture">
+				<div id="picture-1"></div>
+				<div id="picture-2"></div>
+				<div id="picture-3"></div>
+			</div>
+			<!--END OF PICTURES-->
+		<!--PHOTOS-->
+		<div class="drag" id="photo-1">
+				<p class="photo">CAT LADY</p>
+			</div>
+
+		<div class="container">
+
+			<!----CLOCK---->
+			<div class="clock">
+				<div class="clock-hours"></div>
+				<div class="clock-mins"></div>
+			</div>
+
+		
+	
+			<!----SWITCH---->
+			<div class="switch">
+			<div class="switch-white"></div>
+			<div class="switch-yellow"></div>
+			<div class="switch-off"></div>
+			</div>
+
+		
+			<!----COMPUTER---->
+			<div class="computer">
+				<div class="computer-body">
+					<div class="computer-screen">
+						<div class="computer-content">
+							
+                                <h1>COMING SOON</h1>
+                           
+							
+						</div>
+					</div>
+					<div class="computer-stand"></div>
+				</div>
+			</div>
+			<!----LAMP---->
+			<div class="lamp">
+				<div class="lamp-head"></div>
+				<div class="lamp-bulb on"></div>
+				<div class="lamp-bulb off"></div>
+				<div class="lamp-stand-top"></div>
+				<div class="lamp-stand-top"></div>
+				<div class="lamp-pivot"></div>
+				<div class="lamp-stand-bottom"></div>
+				<div class="lamp-stand-bottom"></div>
+				<div class="lamp-base"></div>
+				<div class="lamp-light yellow"></div>
+				<div class="lamp-light white"></div>
+			</div>
+			<!----DESK---->
+			<div class="desk">
+
+			<!-- Begin Mailchimp Signup Form -->
+
+<div id="mc_embed_signup">
+<form action="https://stonehawktravel.us20.list-manage.com/subscribe/post?u=f7fd7897c9b30fddb175fd23e&amp;id=dd31122343" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f7fd7897c9b30fddb175fd23e_dd31122343" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
+			</div>
+		
+	
+		
+		<script src="jquery-2.1.1.js"></script>
+		<script src="desk.js"></script>
+	
+		<div class="main_container">
+				<div class="first">
+					<div class="pr bag_container">
+						<div class="pr bag">
+							<div class="pa handle"></div>
+							<div class="pa head"></div>
+							<div class="pa belt belt1"></div>
+							<div class="pa belt belt2"></div>
+							<div class="pa clip clip1"></div>
+							<div class="pa clip clip2"></div>
+							<div class="pr base">
+								<div class="pa left_pocket"></div>
+								<div class="pa right_pocket"></div>
+							</div>
+						</div>
+					</div>
+					<div class="tc f25 mb20 mt50">
+						About us
+					</div>
+					<div class="tc f20 plr20 c">
+						We are Libby and Raph
+					</div>
+				</div>
+				<div class="second">
+					<div class="pr bookshelf">
+						<div class="pr window_container">
+							<div class="pr window">
+								<div class="book book1"></div>
+								<div class="book book2"></div>
+								<div class="book book3"></div>
+								<div class="book book4"></div>
+							</div>
+							<div class="pa top_books">
+								<div class="book book1"></div>
+								<div class="book book2"></div>
+							</div>
+						</div>
+					</div>
+					<div class="tc f25 mb20 mt50">
+						Travel Blog
+					</div>
+					<div class="tc f20 plr20 c">
+						Share your travel experience with a vast network of fellow travellers.
+					</div>
+				</div>
+				<div class="third">
+					<div class="pr chat_container">
+						<div class="pr chat chat1">
+							<div class="pr circle_container">
+								<div class="circle circle1"></div>
+								<div class="circle circle2"></div>
+								<div class="circle circle2"></div>
+							</div>
+						</div>
+						<div class="pr chat chat2"></div>
+					</div>
+					<div class="tc f25 mb20 mt50">
+						Chat
+					</div>
+					<div class="tc f20 plr20 c">
+						Connect with like minded people and exchange your travel stories.
+					</div>
+				</div>
+			</div>
+			<div class="pr navigations">
+				<div class="left dn fl c">&lt;</div>
+				<div class="right fr c">&gt;</div>
+			</div>
+			<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+			
+</body>
+
+</html>
